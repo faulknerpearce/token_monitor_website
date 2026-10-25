@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TokenMon: AI usage in your menu bar</title>
+  <meta name="description" content="TokenMon is a native macOS menu bar app that tracks how much of your allowance you have used across ChatGPT, Claude, Cursor, Grokbot, OpenCode, OpenRouter and SuperGrok, in real time.">
+  <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d0d10" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="TokenMon: AI usage in your menu bar">
+  <meta property="og:description" content="Every AI allowance, at a glance. Free and open source for macOS.">
+  <meta property="og:image" content="assets/app-icon.png">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/app-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="brand" href="#top" aria-label="TokenMon home">
+        <svg class="brand__mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#mascot"/></svg>
+        <span>TokenMon</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#providers">Providers</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#install">Install</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="nav__gh" href="https://github.com/faulknerpearce/token_monitor" aria-label="TokenMon on GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+        </a>
+        <a class="btn btn--small btn--primary" href="https://github.com/faulknerpearce/token_monitor/releases/latest">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__copy">
+        <h1 class="hero__title" data-reveal>
+          Every AI allowance,<br><em>at a glance.</em>
+        </h1>
+        <p class="hero__lede" data-reveal style="--d:160ms">
+          TokenMon lives in your macOS menu bar and shows how much of your plan you've used across
+          every AI provider you pay for: overall, by window, and day by day.
+        </p>
+        <div class="hero__cta" data-reveal style="--d:240ms">
+          <a class="btn btn--primary" href="https://github.com/faulknerpearce/token_monitor/releases/latest">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.28-1.6 2.78-.41 6.9 1.15 9.16.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.24-.02 2.02-1.12 2.77-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.66ZM14.1 5.84c.63-.77 1.06-1.83.94-2.89-.91.04-2.02.61-2.67 1.37-.58.67-1.1 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.28Z"/></svg>
+            Download for macOS
+          </a>
+          <a class="btn btn--ghost" href="https://github.com/faulknerpearce/token_monitor">
+            View source
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <ul class="hero__meta" data-reveal style="--d:320ms">
+          <li>macOS 14+</li>
+          <li>Native Swift</li>
+          <li>Free &amp; MIT licensed</li>
+        </ul>
+      </div>
+
+      <!-- Live product preview: mirrors the app's menu bar dropdown -->
+      <div class="stage" data-reveal style="--d:200ms">
+        <div class="stage__glow" aria-hidden="true"></div>
+        <div class="mac">
+        <div class="desk" id="desk">
+          <div class="desk__wall" aria-hidden="true"></div>
+          <div class="desk__bar">
+            <div class="desk__left" aria-hidden="true">
+              <svg class="desk__apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.28-1.6 2.780-.41 6.9 1.15 9.16.76 1.1 1.670 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.24-.02 2.02-1.12 2.77-2.23.87-1.28 1.230-2.52 1.250-2.58-.03-.01-2.4-.92-2.42-3.66ZM14.1 5.84c.63-.77 1.06-1.83.94-2.89-.91.04-2.02.61-2.67 1.37-.58.67-1.1 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.28Z"/></svg>
+            </div>
+            <div class="desk__right">
+              <div class="status" id="statusItem" role="group" aria-label="TokenMon in the menu bar"></div>
+            </div>
+          </div>
+          <div class="tm-panel" id="tmPanel">
+            <div class="tm-switcher" role="tablist" aria-label="Providers" id="tmTabs"></div>
+            <div class="tm-content" id="tmContent"></div>
+          </div>
+          <svg class="fake-cursor" id="fakeCursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 3.2v15.6l4.1-3.9 2.6 6.1 2.6-1.1-2.6-6h5.7Z" fill="#000" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        </div>
+        </div>
+        <p class="stage__hint">Live preview. Click a tab or a menu bar graph.</p>
+      </div>
+    </section>
+
+    <!-- Provider marquee -->
+    <section class="marquee" aria-label="Supported providers">
+      <p class="marquee__label">One menu bar for every plan you pay for</p>
+      <div class="marquee__track">
+        <div class="marquee__row" id="marqueeRow"></div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+      <header class="section__head">
+        <p class="eyebrow" data-reveal>Features</p>
+        <h2 data-reveal style="--d:60ms">Quiet until you need it.<br><em>Precise when you do.</em></h2>
+        <p class="section__lede" data-reveal style="--d:120ms">A compact status in the menu bar, a full panel one click away. Every number comes straight from the provider's own usage endpoint, paced against the provider's own reset window.</p>
+      </header>
+
+      <div class="bento">
+        <article class="card card--overview" data-reveal data-spot>
+          <div class="card__copy">
+            <span class="card__kicker">All tab</span>
+            <h3>Overview, side by side</h3>
+            <p>Every connected provider on one tab, with today's usage stacked hour by hour. Step back through the last 30 days with the arrows.</p>
+          </div>
+          <div class="card__visual card__visual--chart">
+            <div class="viz-hours" id="hourly" aria-hidden="true"></div>
+            <div class="viz-legend" id="hourlyLegend" aria-hidden="true"></div>
+          </div>
+        </article>
+
+        <article class="card card--budget" data-reveal data-spot style="--d:80ms">
+          <div class="card__visual">
+            <div class="viz-budget" id="budgetViz" aria-hidden="true"></div>
+          </div>
+          <div class="card__copy">
+            <span class="card__kicker">Daily Budget</span>
+            <h3>Know today's share</h3>
+            <p>Daily bars for weekly windows and subscription months, paced against what you've actually used.</p>
+          </div>
+        </article>
+
+        <article class="card" data-reveal data-spot>
+          <div class="card__visual card__visual--center">
+            <div class="viz-notif" aria-hidden="true">
+              <img src="assets/app-icon.png" alt="" width="36" height="36">
+              <div class="viz-notif__text">
+                <div class="viz-notif__top"><b>TokenMon Alert</b><span>now</span></div>
+                <p>Claude usage is at 82% (threshold 80%).</p>
+              </div>
+            </div>
+          </div>
+          <div class="card__copy">
+            <span class="card__kicker">Alerts</span>
+            <h3>A nudge at your threshold</h3>
+            <p>An optional notification when any provider crosses the level you pick. Off until you turn it on.</p>
+          </div>
+        </article>
+
+        <article class="card" data-reveal data-spot style="--d:80ms">
+          <div class="card__visual card__visual--center">
+            <div class="viz-signin" aria-hidden="true">
+              <div class="viz-signin__bar"><i></i><i></i><i></i><span>Sign in to Claude</span></div>
+              <div class="viz-signin__body">
+                <span class="viz-check"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>Signed in as <b>you@example.com</b></span>
+              </div>
+            </div>
+          </div>
+          <div class="card__copy">
+            <span class="card__kicker">Sign-in</span>
+            <h3>One tap per provider</h3>
+            <p>Sign in on the provider's own page in an isolated window. It confirms, closes itself, and keeps the session in your Keychain.</p>
+          </div>
+        </article>
+
+        <article class="card" data-reveal data-spot style="--d:160ms">
+          <div class="card__visual card__visual--center">
+            <div class="viz-files" aria-hidden="true">
+              <span class="viz-file"><b>CSV</b>grok-usage.csv</span>
+              <span class="viz-file"><b>JSON</b>grok-usage.json</span>
+            </div>
+          </div>
+          <div class="card__copy">
+            <span class="card__kicker">History</span>
+            <h3>Yours to keep</h3>
+            <p>Snapshots stay on your Mac. Open the charts window, or export your SuperGrok history to CSV or JSON.</p>
+          </div>
+        </article>
+
+        <article class="card card--spend" data-reveal data-spot>
+          <div class="card__copy">
+            <span class="card__kicker">Claude Code</span>
+            <h3>What your sessions are worth</h3>
+            <p>Tokens and API-rate spend by model, for this month and all time, read from Claude Code's session logs on your Mac.</p>
+          </div>
+          <div class="spend">
+            <dl class="spend__stats">
+              <div><dt>Tokens this month</dt><dd>486M</dd></div>
+              <div><dt>Spend this month</dt><dd data-count="612.40" data-prefix="$">$0</dd></div>
+              <div><dt>Total tokens</dt><dd>2.9B</dd></div>
+              <div><dt>Total spend</dt><dd>$3,184.75</dd></div>
+            </dl>
+            <ul class="spend__models">
+              <li style="--w:67%"><img src="assets/logos/claude.svg" alt=""><span>Opus</span><b>$412.80</b><i></i></li>
+              <li style="--w:30%"><img src="assets/logos/claude.svg" alt=""><span>Sonnet</span><b>$180.70</b><i></i></li>
+              <li style="--w:3%"><img src="assets/logos/claude.svg" alt=""><span>Haiku</span><b>$18.90</b><i></i></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Providers -->
+    <section class="section" id="providers">
+      <header class="section__head">
+        <p class="eyebrow" data-reveal>Providers</p>
+        <h2 data-reveal style="--d:60ms">Seven providers.<br><em>Each on its own clock.</em></h2>
+        <p class="section__lede" data-reveal style="--d:120ms">Every window is anchored to the provider's own reset metadata: session limits, weekly pools, billing cycles and credit caps, exactly as the provider reports them.</p>
+      </header>
+      <div class="providers" id="providerGrid"></div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="privacy" id="privacy">
+      <div class="privacy__inner">
+        <div class="privacy__mascot" data-reveal aria-hidden="true">
+          <svg viewBox="0 0 200 200" id="bigMascot">
+            <defs>
+              <linearGradient id="mascotShade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#3a3940"/>
+                <stop offset="1" stop-color="#1c1b20"/>
+              </linearGradient>
+            </defs>
+            <path d="M30 100C30 52 60 25 100 25s70 27 70 75v57c0 10-8 18-18 18h-10c-8 0-13-11-42-11s-34 11-42 11H48c-10 0-18-8-18-18Z" fill="url(#mascotShade)"/>
+            <rect x="46" y="72" width="108" height="56" rx="28" fill="#f7f6f3"/>
+            <g class="eyes" id="eyes">
+              <g class="eye"><circle cx="78" cy="100" r="12" fill="#1c1b20"/><circle cx="74" cy="96" r="3.6" fill="#fff"/></g>
+              <g class="eye"><circle cx="122" cy="100" r="12" fill="#1c1b20"/><circle cx="118" cy="96" r="3.6" fill="#fff"/></g>
+            </g>
+          </svg>
+        </div>
+        <div class="privacy__copy">
+          <p class="eyebrow eyebrow--light" data-reveal>Privacy</p>
+          <h2 data-reveal style="--d:60ms">Your usage stays<br><em>on your Mac.</em></h2>
+          <ul class="privacy__list">
+            <li data-reveal style="--d:120ms">
+              <h4>Credentials in the Keychain</h4>
+              <p>Session cookies and keys live in a single login-Keychain item, on this device only, never synced.</p>
+            </li>
+            <li data-reveal style="--d:180ms">
+              <h4>No third-party telemetry</h4>
+              <p>History is stored locally with SwiftData. Provider responses are never cached to disk.</p>
+            </li>
+            <li data-reveal style="--d:240ms">
+              <h4>Talks only to your providers</h4>
+              <p>Network access is limited to the providers you connect, plus GitHub for optional update checks.</p>
+            </li>
+            <li data-reveal style="--d:300ms">
+              <h4>Read-only local files</h4>
+              <p>OpenCode's database and Claude Code's session logs are read, never written. The data never leaves the Mac.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Install -->
+    <section class="section" id="install">
+      <header class="section__head section__head--center">
+        <p class="eyebrow" data-reveal>Install</p>
+        <h2 data-reveal style="--d:60ms">Up and running<br><em>in a minute.</em></h2>
+      </header>
+
+      <div class="install">
+        <article class="install__card" data-reveal data-spot>
+          <span class="install__step">01</span>
+          <h3>Download the app</h3>
+          <p>Grab the latest <code>.pkg</code> or <code>.zip</code> from GitHub Releases. After each update, macOS asks once to let TokenMon read its Keychain item. Choose <b>Always Allow</b>.</p>
+          <a class="btn btn--primary" href="https://github.com/faulknerpearce/token_monitor/releases/latest">Latest release</a>
+        </article>
+
+        <article class="install__card" data-reveal data-spot style="--d:80ms">
+          <span class="install__step">02</span>
+          <h3>Or build from source</h3>
+          <p>Requires Xcode 16 or later. Installs a Release build into <code>/Applications</code>.</p>
+          <div class="code">
+            <button class="code__copy" type="button" data-copy="git clone https://github.com/faulknerpearce/token_monitor.git&#10;cd token_monitor&#10;make install">Copy</button>
+<pre><code><span class="c-dim">$</span> git clone https://github.com/faulknerpearce/token_monitor.git
+<span class="c-dim">$</span> cd token_monitor
+<span class="c-dim">$</span> make install</code></pre>
+          </div>
+        </article>
+
+        <article class="install__card" data-reveal data-spot style="--d:160ms">
+          <span class="install__step">03</span>
+          <h3>Sign in to your providers</h3>
+          <p>Click the menu bar item, pick a provider, and choose <b>Sign In…</b>. Usage appears after the first refresh. Repeat for every plan you want to track.</p>
+          <div class="signed">
+            <span class="signed__check"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Signed in as <b>you@example.com</b>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="closer">
+      <div class="closer__inner" data-reveal>
+        <img src="assets/app-icon.png" alt="" width="112" height="112" class="closer__icon">
+        <h2>Know where you stand.<br><em>Before the limit does.</em></h2>
+        <div class="hero__cta hero__cta--center">
+          <a class="btn btn--primary" href="https://github.com/faulknerpearce/token_monitor/releases/latest">Download for macOS</a>
+          <a class="btn btn--ghost" href="https://github.com/faulknerpearce/token_monitor">Star on GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <a class="brand" href="#top">
+        <svg class="brand__mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#mascot"/></svg>
+        <span>TokenMon</span>
+      </a>
+      <p>Free and open source under the MIT License.</p>
+      <nav aria-label="Footer">
+        <a href="https://github.com/faulknerpearce/token_monitor">GitHub</a>
+        <a href="https://github.com/faulknerpearce/token_monitor/releases">Releases</a>
+        <a href="https://github.com/faulknerpearce/token_monitor/blob/main/SECURITY.md">Security</a>
+        <a href="https://github.com/faulknerpearce/token_monitor/blob/main/LICENSE">License</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Shared mascot symbols -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="mascot" viewBox="0 0 200 200">
+      <path d="M30 100C30 52 60 25 100 25s70 27 70 75v57c0 10-8 18-18 18h-10c-8 0-13-11-42-11s-34 11-42 11H48c-10 0-18-8-18-18Z" fill="currentColor"/>
+      <rect x="46" y="72" width="108" height="56" rx="28" fill="var(--mascot-visor, #fff)"/>
+      <circle cx="78" cy="100" r="12" fill="currentColor"/>
+      <circle cx="122" cy="100" r="12" fill="currentColor"/>
+    </symbol>
+    <symbol id="mascot-mono" viewBox="0 0 200 200">
+      <path fill-rule="evenodd" fill="currentColor" d="M30 100C30 52 60 25 100 25s70 27 70 75v57c0 10-8 18-18 18h-10c-8 0-13-11-42-11s-34 11-42 11H48c-10 0-18-8-18-18ZM74 72a28 28 0 0 0 0 56h52a28 28 0 0 0 0-56Z"/>
+      <circle cx="78" cy="100" r="13" fill="currentColor"/>
+      <circle cx="122" cy="100" r="13" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <script src="demo.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
