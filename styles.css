@@ -658,11 +658,15 @@ code { font-family: var(--font-mono); font-size: 0.86em; padding: 0.1em 0.38em; 
 .install__card p { margin-top: 8px; color: var(--ink-2); flex: 1; }
 .install__card .btn, .code, .signed { margin-top: 24px; }
 .code { position: relative; width: 100%; border-radius: var(--radius-md); background: #141418; border: 1px solid rgba(255, 255, 255, 0.06); overflow: hidden; }
-.code pre { margin: 0; padding: 18px; overflow-x: auto; font: var(--text-caption)/1.8 var(--font-mono); color: #e9e8e4; }
+.code__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 6px 6px 6px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font: 500 var(--text-micro)/1.4 var(--font-mono); color: #75747c;
+}
+.code pre { margin: 0; padding: 14px 16px 16px; overflow-x: auto; font: var(--text-caption)/1.8 var(--font-mono); color: #e9e8e4; }
 .code code { padding: 0; border: 0; background: none; font-size: inherit; }
 .c-dim { color: #75747c; user-select: none; }
 .code__copy {
-  position: absolute; top: 8px; right: 8px; z-index: 1;
   padding: 4px 10px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.06);
   font: 500 var(--text-micro)/1.4 var(--font-sans); color: rgba(255, 255, 255, 0.75); cursor: pointer;
   transition: background 0.25s, color 0.25s;

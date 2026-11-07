@@ -281,7 +281,10 @@
           <h3>Or build from source</h3>
           <p>Requires Xcode 16 or later. Installs a Release build into <code>/Applications</code>.</p>
           <div class="code">
-            <button class="code__copy" type="button" data-copy="git clone https://github.com/faulknerpearce/token_monitor.git&#10;cd token_monitor&#10;make install">Copy</button>
+            <div class="code__bar">
+              <span>Terminal</span>
+              <button class="code__copy" type="button" data-copy="git clone https://github.com/faulknerpearce/token_monitor.git&#10;cd token_monitor&#10;make install">Copy</button>
+            </div>
 <pre><code><span class="c-dim">$</span> git clone https://github.com/faulknerpearce/token_monitor.git
 <span class="c-dim">$</span> cd token_monitor
 <span class="c-dim">$</span> make install</code></pre>
@@ -294,7 +297,7 @@
           <p>Click the menu bar item, pick a provider, and choose <b>Sign In…</b>. Usage appears after the first refresh. Repeat for every plan you want to track.</p>
           <div class="signed">
             <span class="signed__check"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Signed in as <b>you@example.com</b>
+            <span>Signed in as <b>you@example.com</b></span>
           </div>
         </article>
       </div>
