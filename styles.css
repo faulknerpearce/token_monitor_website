@@ -26,7 +26,6 @@
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-  --font-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* Type scale (site only; the .desk preview keeps the app's own point sizes) */
@@ -98,7 +97,7 @@ a { color: inherit; text-decoration: none; }
 img, svg { display: block; }
 h1, h2, h3, h4 { margin: 0; font-weight: 600; }
 h2 { font-size: var(--text-h2); letter-spacing: -0.04em; line-height: 1.02; }
-h2 em { font-size: 1.08em; color: var(--ink-2); }
+h1 em, h2 em { color: var(--ink-3); }
 h3 { font-size: var(--text-h3); letter-spacing: -0.025em; line-height: 1.25; }
 h4 { font-size: var(--text-h4); letter-spacing: -0.015em; line-height: 1.3; }
 p { margin: 0; }
@@ -111,7 +110,7 @@ p { margin: 0; }
   font-size: var(--text-caption); font-weight: 600; line-height: 1.4;
   letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--ink-3);
 }
-em { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+em { font-style: normal; }
 code { font-family: var(--font-mono); font-size: 0.86em; padding: 0.1em 0.38em; border-radius: 6px; background: var(--bg-2); border: 1px solid var(--line); }
 ::selection { background: color-mix(in srgb, var(--accent) 30%, transparent); }
 
@@ -216,7 +215,6 @@ code { font-family: var(--font-mono); font-size: 0.86em; padding: 0.1em 0.38em; 
   font-size: var(--text-h1);
   letter-spacing: -0.045em; line-height: 0.98;
 }
-.hero__title em { font-size: 1.08em; letter-spacing: -0.02em; background: linear-gradient(100deg, var(--ink) 10%, var(--ink-2) 90%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: 0.06em; }
 .hero__lede { margin-top: 24px; max-width: 30em; font-size: var(--text-lede); color: var(--ink-2); }
 .cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
 .hero__meta { margin: 28px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: var(--text-meta); color: var(--ink-3); }
