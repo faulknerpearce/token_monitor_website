@@ -66,7 +66,7 @@
     <article class="prov prov--all" data-reveal style="--c:var(--ink-2);--d:210ms">
       <div class="prov__head">
         <span class="prov__logo prov__logo--mark"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#mascot"/></svg></span>
-        <span class="prov__id"><b>All</b><small>Overview tab</small></span>
+        <div class="prov__id"><h3>All</h3><small>Overview tab</small></div>
       </div>
       <p>Every connected provider on one tab.</p>
       <div class="prov__logos">${PROVIDER_CARDS.map((p) => `<span title="${p.name}"><img src="assets/logos/${p.logo}" alt="" draggable="false"></span>`).join("")}</div>
@@ -76,7 +76,7 @@
     <article class="prov" data-reveal style="--c:${p.color};--d:${(i % 4) * 70}ms">
       <div class="prov__head">
         <span class="prov__logo"><img src="assets/logos/${p.logo}" alt="" draggable="false"></span>
-        <span class="prov__id"><b>${p.name}</b><small>${p.pool}</small></span>
+        <div class="prov__id"><h3>${p.name}</h3><small>${p.pool}</small></div>
       </div>
       <p>${p.text}</p>
       <div class="prov__wins">${p.segments ? segments(p.segments) : p.windows.map(([l, v]) => meter(l, v)).join("")}</div>
