@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Buy me a coffee · TokenMon</title>
+  <meta name="description" content="TokenMon is free, open source and built by one developer. If it's useful to you, you can buy me a coffee.">
+  <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d0d10" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/app-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="brand" href="index.html" aria-label="TokenMon home">
+        <svg class="brand__mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#mascot"/></svg>
+        <span>TokenMon</span>
+      </a>
+      <div class="nav__actions">
+        <a class="btn btn--small btn--primary" href="https://github.com/faulknerpearce/token_monitor/releases/latest">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="tip container">
+    <img src="assets/app-icon.png" alt="" width="96" height="96" class="tip__icon">
+
+    <section class="tip__thanks" id="tipThanks" hidden>
+      <p class="label">Thank you</p>
+      <h1>Thanks for the coffee.<br><em>It means a lot.</em></h1>
+      <p class="tip__lede">Stripe has emailed you a receipt. TokenMon stays free and open source, and support like yours keeps it that way.</p>
+      <div class="cta">
+        <a class="btn btn--primary" href="https://github.com/faulknerpearce/token_monitor/releases/latest">Download TokenMon</a>
+        <a class="btn btn--ghost" href="index.html">Back to TokenMon</a>
+      </div>
+    </section>
+
+    <section class="tip__ask" id="tipAsk">
+      <header class="tip__head" id="tipHeadSupport">
+        <p class="label">Support the developer</p>
+        <h1>Enjoying TokenMon?<br><em>Buy me a coffee.</em></h1>
+        <p class="tip__lede">TokenMon is free, open source and built by one developer. If it has saved you from hitting a usage limit by surprise, you can buy me a coffee.</p>
+      </header>
+      <header class="tip__head" id="tipHeadDownload" hidden>
+        <p class="label">Before you download</p>
+        <h1>TokenMon is free.<br><em>Coffee keeps it going.</em></h1>
+        <p class="tip__lede">TokenMon is open source and built by one developer. If you'd like to chip in, a coffee helps keep it maintained.</p>
+      </header>
+
+      <div class="tip__row">
+      <form class="tip__card" id="tipForm" novalidate>
+        <fieldset class="tip__amounts">
+          <legend class="label">Choose an amount</legend>
+          <div class="tip__grid" id="tipPresets"></div>
+          <label class="tip__custom" id="tipCustom" hidden>
+            <span>$</span>
+            <input type="number" inputmode="decimal" min="1" max="10000" step="0.01" placeholder="Enter an amount" id="tipCustomInput" aria-label="Custom amount in US dollars">
+          </label>
+        </fieldset>
+        <button class="btn btn--primary tip__go" type="submit" id="tipGo">Buy me a coffee</button>
+        <p class="tip__error" id="tipError" role="alert" hidden></p>
+        <p class="tip__note">You'll pay on Stripe's secure checkout page, and you can still change the amount there. TokenMon never sees your card details.</p>
+      </form>
+
+      <aside class="tip__skip" id="tipSkip" hidden>
+        <h2>Not today?</h2>
+        <p>TokenMon is free for everyone, and that won't change. If you can't chip in right now, that's okay.</p>
+        <a class="btn btn--ghost" href="https://github.com/faulknerpearce/token_monitor/releases/latest">Continue to download</a>
+      </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner container">
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#mascot"/></svg>
+        <span>TokenMon</span>
+      </a>
+      <p>Free and open source under the MIT License.</p>
+      <nav aria-label="Footer">
+        <a href="https://github.com/faulknerpearce/token_monitor">GitHub</a>
+        <a href="https://github.com/faulknerpearce/token_monitor/releases">Releases</a>
+        <a href="https://github.com/faulknerpearce/token_monitor/blob/main/LICENSE">License</a>
+      </nav>
+    </div>
+  </footer>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="mascot" viewBox="0 0 200 200">
+      <path d="M30 100C30 52 60 25 100 25s70 27 70 75v57c0 10-8 18-18 18h-10c-8 0-13-11-42-11s-34 11-42 11H48c-10 0-18-8-18-18Z" fill="currentColor"/>
+      <rect x="46" y="72" width="108" height="56" rx="28" fill="var(--mascot-visor, #fff)"/>
+      <circle cx="78" cy="100" r="12" fill="currentColor"/>
+      <circle cx="122" cy="100" r="12" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <script src="support.js"></script>
+</body>
+</html>
